@@ -58,7 +58,7 @@ springdoc:
 
           github:
             client-id: Ov23liDNZOj6fRNAyIr7
-            client-secret: 7348245f6010707b73a9242b1fff741cf7bfa953
+            #client-secret: 7348245f6010707b73a9242b1fff741cf7bfa953
             redirect-uri: "{baseUrl}/login/oauth2/code/github"
             scope:
               - read:user
