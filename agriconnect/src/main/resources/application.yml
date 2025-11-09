@@ -47,7 +47,7 @@ springdoc:
       client:
         registration:
           google:
-            client-id: 204915941072-fckl8bu6ouj5lbq3q35ebb8k8hltns50.apps.googleusercontent.com
+            client-id:
             client-secret:
             redirect-uri: "{baseUrl}/login/oauth2/code/google"
             scope:
@@ -57,7 +57,7 @@ springdoc:
             client-name: Google
 
           github:
-            client-id: Ov23liDNZOj6fRNAyIr7
+            client-id:
             client-secret:
             redirect-uri: "{baseUrl}/login/oauth2/code/github"
             scope:
@@ -74,7 +74,7 @@ app:
         enabled: true
         verification-expiry: 10m
         jwt:
-          secret-key: asdfhads9f67as98dfyaiSauravvM98s67dfy89azxyZSTuays89dfyasi8df7asdf87987g98a7sg986a89sdf7y
+          # secret-key: asdfhads9f67as98dfyaiSauravvM98s67dfy89azxyZSTuays89dfyasi8df7asdf87987g98a7sg986a89sdf7y
           expiration-time: 3600000  # 1 hour
 
 
