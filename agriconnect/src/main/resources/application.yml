@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: order-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/agriconnect_orders
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/agriconnect
+          jwk-set-uri: http://localhost:8080/realms/agriconnect/protocol/openid-connect/certs
+
+server:
+  port: 8081
+  servlet:
+    context-path: /
+
+logging:
+  level:
+    com.agriconnect: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 204915941072-fckl8bu6ouj5lbq3q35ebb8k8hltns50.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: "{baseUrl}/login/oauth2/code/google"
+            scope:
+              - openid
+              - profile
+              - email
+            client-name: Google
+
+          github:
+            client-id: Ov23liDNZOj6fRNAyIr7
+            client-secret: 7348245f6010707b73a9242b1fff741cf7bfa953
+            redirect-uri: "{baseUrl}/login/oauth2/code/github"
+            scope:
+              - read:user
+              - user:email
+            client-name: GitHub
+
+# Email authentication will be handled locally (with JWT)
+app:
+  security:
+    auth:
+      type: jwt
+      email-login:
+        enabled: true
+        verification-expiry: 10m
+        jwt:
+          secret-key: asdfhads9f67as98dfyaiSauravvM98s67dfy89azxyZSTuays89dfyasi8df7asdf87987g98a7sg986a89sdf7y
+          expiration-time: 3600000  # 1 hour
+
+
